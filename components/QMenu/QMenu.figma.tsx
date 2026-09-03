@@ -1,22 +1,16 @@
-import figma from '@figma/code-connect';
-import { QMenu } from './QMenu';
-
 /**
- * Code Connect: liga o componente QMenu (código) ao componente do Figma.
- * Node: 2061:30229  |  Arquivo: SIGH-WEB - DS
+ * QMenu — SEM Code Connect ainda.
  *
- * Depois de rodar `npx figma connect publish`, o painel "Code" do Figma
- * passa a mostrar este snippet quando o design QMenu for selecionado.
+ * O node 2061:30229 (Figma, SIGH-WEB - DS) não possui nenhuma Component
+ * Property definida (verificado via get_context_for_code_connect em
+ * 03/09/2026). Um figma.connect() aqui não teria nenhuma prop real para
+ * mapear, então este arquivo foi deixado vazio de propósito — publicá-lo
+ * como está criaria um mapeamento sem props, o que raramente é útil.
+ *
+ * Próximo passo (se quiserem conectar este componente de verdade):
+ *   1. No Figma, adicionar Component Properties ao QMenu (ex.: Opened, Dense).
+ *   2. Atualizar QMenu.tsx com as props correspondentes.
+ *   3. Escrever o figma.connect() aqui, no mesmo padrão dos outros componentes
+ *      desta pasta.
  */
-figma.connect(
-  QMenu,
-  'https://www.figma.com/design/EXtprJ9elOOW24MPmQSnBU/SIGH-WEB---DS?node-id=2061-30229',
-  {
-    props: {
-    open: figma.string('open'), // TODO: confirme o nome da Component Property no Figma
-    },
-    example: ({ open }) => (
-      <QMenu open={open} />
-    ),
-  }
-);
+export {};

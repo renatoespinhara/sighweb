@@ -4,16 +4,23 @@ import React from 'react';
  * QBadge
  * Badge / contador.
  *
+ * Props alinhadas 1:1 com as Component Properties reais do node 15:191
+ * no arquivo SIGH-WEB - DS (levantadas via get_context_for_code_connect em 03/09/2026).
+ * 
+ *
  * STUB gerado automaticamente. Substitua pelo markup/estilo reais do design system.
- * Depois de implementar, o arquivo QBadge.figma.tsx (nesta mesma pasta) já está
- * pronto para conectar este componente ao node correspondente no Figma via Code Connect.
  */
 export interface QBadgeProps {
-  color?: 'primary' | 'secondary' | 'danger';
+  style?: 'filled' | 'outline';
+  transparent?: boolean;
+  rounded?: boolean;
+  color?: 'primary';
   label?: string;
+  labelVisible?: boolean;
+  icon?: boolean;
 }
 
-export function QBadge({ color = 'primary', label }: QBadgeProps) {
+export function QBadge({ style = 'filled', transparent = false, rounded = false, color = 'primary', label = '', labelVisible = false, icon = false }: QBadgeProps) {
   return (
     <div className="q-qbadge">
       {/* TODO: implementar QBadge */}

@@ -18,18 +18,42 @@ components/
   ...
 ```
 
-16 componentes já escaneados no arquivo Figma **SIGH-WEB - DS**
-(`fileKey: EXtprJ9elOOW24MPmQSnBU`) foram gerados com o node correto já
-preenchido no `.figma.tsx`:
+16 componentes foram escaneados no arquivo Figma **SIGH-WEB - DS**
+(`fileKey: EXtprJ9elOOW24MPmQSnBU`) via `get_context_for_code_connect`, e cada
+`.figma.tsx` usa `figma.enum` / `figma.boolean` / `figma.string` mapeando as
+**Component Properties reais** de cada node (não um mapeamento genérico):
 
-QButton, QIconButton, QButtonGroup, QBtnDropdown, QInput, QSelect, QChip,
-QBadge, QToolbar, QTabs, QBreadcrumbs, QPagination, QTooltip, QItem, QMenu,
-QUploader.
+| Componente | Props mapeadas | Pendências |
+|---|---|---|
+| QButton | style, size, state, color, rounded, elevated, label, startIcon, endIcon | — |
+| QIconButton | style, size, state, color, round, elevated | — |
+| QButtonGroup | style, size, color, rounded, thirdButton, fourthButton, fifthButton | — |
+| QBtnDropdown | split, style, size, opened, state, color, rounded, elevated, label, icon | `slot` (INSTANCE_SWAP) |
+| QInput | style, state, disable, dense, labelPosition, startSection, placeholder, endSection, label, value, hint, required, control, clearable | `clearableIcon`, `dropdown` (INSTANCE_SWAP) |
+| QSelect | opened, state | poucas Component Properties definidas hoje no Figma |
+| QChip | rtl, style, size, state, dense, rounded, label, removable | `removeIcon` (INSTANCE_SWAP) |
+| QBadge | style, transparent, rounded, color, label, labelVisible, icon | — |
+| QToolbar | type, title | `slot` (INSTANCE_SWAP, usado quando Type=Swap) |
+| QTabs | selected, state, orientation, dense, label, icon, labelVisible, notification | — |
+| QBreadcrumbs | linked, gutter, label, labelVisible, icon, separatorVisible | `separatorIcon` (INSTANCE_SWAP) |
+| QPagination | gutter, type, withBoundary, current, pages, startEnd | — |
+| QTooltip | rtl, arrowPosition, arrow, label | — |
+| QItem | state, flip, textLayout, label, caption, overline, startSection, endSection, separatorVisible | `dropdown` (INSTANCE_SWAP) |
+| QUploader | uploaded, title, titleVisible, progressVisible, progressLabel, loadedValueLabel, loadedValueVisible | — |
+| QMenu | **nenhuma** | node sem Component Properties — `.figma.tsx` deixado vazio de propósito, veja comentário no arquivo |
 
-> Existem outros nodes na página "🔣┆Componentes" do Figma (ex.: `QMenu`,
-> `@Section`, `@Slot`, sub-componentes internos) que não viraram pasta própria
-> aqui por serem partes internas/privadas de outros componentes. Podemos gerar
-> mais conforme for necessário.
+**Sobre as pendências "INSTANCE_SWAP":** são propriedades do tipo "trocar
+instância" (ex.: um ícone ou slot que pode ser substituído por outro
+componente). Mapear isso corretamente exige `figma.instance(...)` apontando
+para os componentes de código equivalentes a cada opção — não dava pra
+inferir esse mapeamento com segurança sem saber quais componentes de ícone
+específicos vocês usam no código, então ficaram como TODO comentado em cada
+arquivo.
+
+> Existem outros nodes na página "🔣┆Componentes" do Figma (ex.: `@Section`,
+> `@Slot`, sub-componentes internos) que não viraram pasta própria aqui por
+> serem partes internas/privadas de outros componentes. Podemos gerar mais
+> conforme for necessário.
 
 ## Passo a passo para colocar isso no repo
 

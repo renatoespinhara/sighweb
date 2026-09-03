@@ -2,17 +2,26 @@ import React from 'react';
 
 /**
  * QTabs
- * Navegação em abas.
+ * Item de navegação em abas.
+ *
+ * Props alinhadas 1:1 com as Component Properties reais do node 2001:2601
+ * no arquivo SIGH-WEB - DS (levantadas via get_context_for_code_connect em 03/09/2026).
+ * 
  *
  * STUB gerado automaticamente. Substitua pelo markup/estilo reais do design system.
- * Depois de implementar, o arquivo QTabs.figma.tsx (nesta mesma pasta) já está
- * pronto para conectar este componente ao node correspondente no Figma via Code Connect.
  */
 export interface QTabsProps {
-  activeTab?: string;
+  selected?: boolean;
+  state?: 'default' | 'hover';
+  orientation?: 'horizontal' | 'vertical';
+  dense?: boolean;
+  label?: string;
+  icon?: boolean;
+  labelVisible?: boolean;
+  notification?: boolean;
 }
 
-export function QTabs({ activeTab }: QTabsProps) {
+export function QTabs({ selected = false, state = 'default', orientation = 'horizontal', dense = false, label = '', icon = false, labelVisible = false, notification = false }: QTabsProps) {
   return (
     <div className="q-qtabs">
       {/* TODO: implementar QTabs */}

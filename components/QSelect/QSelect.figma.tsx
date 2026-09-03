@@ -5,6 +5,7 @@ import { QSelect } from './QSelect';
  * Code Connect: liga o componente QSelect (código) ao componente do Figma.
  * Node: 2057:10263  |  Arquivo: SIGH-WEB - DS
  *
+ *
  * Depois de rodar `npx figma connect publish`, o painel "Code" do Figma
  * passa a mostrar este snippet quando o design QSelect for selecionado.
  */
@@ -13,12 +14,11 @@ figma.connect(
   'https://www.figma.com/design/EXtprJ9elOOW24MPmQSnBU/SIGH-WEB---DS?node-id=2057-10263',
   {
     props: {
-    label: figma.string('label'), // TODO: confirme o nome da Component Property no Figma
-    multiple: figma.string('multiple'), // TODO: confirme o nome da Component Property no Figma
-    disabled: figma.string('disabled'), // TODO: confirme o nome da Component Property no Figma
+    opened: figma.enum('Opened', { Off: false, On: true }),
+    state: figma.enum('State', { Default: 'default', Hover: 'hover', Filled: 'filled' }),
     },
-    example: ({ label, multiple, disabled }) => (
-      <QSelect label={label} multiple={multiple} disabled={disabled} />
+    example: ({ opened, state }) => (
+      <QSelect opened={opened} state={state} />
     ),
   }
 );

@@ -2,19 +2,20 @@ import React from 'react';
 
 /**
  * QSelect
- * Campo de seleção (dropdown/select).
+ * Campo de seleção (dropdown/select). Poucas Component Properties definidas hoje no Figma.
+ *
+ * Props alinhadas 1:1 com as Component Properties reais do node 2057:10263
+ * no arquivo SIGH-WEB - DS (levantadas via get_context_for_code_connect em 03/09/2026).
+ * 
  *
  * STUB gerado automaticamente. Substitua pelo markup/estilo reais do design system.
- * Depois de implementar, o arquivo QSelect.figma.tsx (nesta mesma pasta) já está
- * pronto para conectar este componente ao node correspondente no Figma via Code Connect.
  */
 export interface QSelectProps {
-  label?: string;
-  multiple?: boolean;
-  disabled?: boolean;
+  opened?: boolean;
+  state?: 'default' | 'hover' | 'filled';
 }
 
-export function QSelect({ label, multiple = false, disabled = false }: QSelectProps) {
+export function QSelect({ opened = false, state = 'default' }: QSelectProps) {
   return (
     <div className="q-qselect">
       {/* TODO: implementar QSelect */}
