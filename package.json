@@ -1,0 +1,13 @@
+{
+  "name": "sighweb-design-system-components",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "figma:connect": "figma connect publish"
+  },
+  "devDependencies": {
+    "@figma/code-connect": "^1.0.0",
+    "react": "^18.0.0",
+    "typescript": "^5.0.0"
+  }
+}
