@@ -12,12 +12,12 @@ import React from 'react';
  */
 export interface QTooltipProps {
   rtl?: false;
-  arrowPosition?: '↙Bottomleft' | '↓Bottom' | '↘Bottomright' | '↖Topleft' | '↑Top' | '↗Topright' | '↗Righttop' | '→Right' | '↘Rightbottom' | '↖Lefttop' | '←Left' | '↙Leftbottom';
+  arrowPosition?: 'bottomLeft' | 'bottom' | 'bottomRight' | 'topLeft' | 'top' | 'topRight' | 'rightTop' | 'right' | 'rightBottom' | 'leftTop' | 'left' | 'leftBottom';
   arrow?: boolean;
   label?: string;
 }
 
-export function QTooltip({ rtl = false, arrowPosition = '↙Bottomleft', arrow = false, label = '' }: QTooltipProps) {
+export function QTooltip({ rtl = false, arrowPosition = 'bottomLeft', arrow = false, label = '' }: QTooltipProps) {
   return (
     <div className="q-qtooltip">
       {/* TODO: implementar QTooltip */}

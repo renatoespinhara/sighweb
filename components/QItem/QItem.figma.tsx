@@ -18,7 +18,7 @@ figma.connect(
     props: {
     state: figma.enum('State', { Default: 'default', Hover: 'hover', Disable: 'disable' }),
     flip: figma.enum('Flip', { Off: false, On: true }),
-    textLayout: figma.enum('Text layout', { Single line: 'singleline', Caption: 'caption', Overline: 'overline' }),
+    textLayout: figma.enum('Text layout', { 'Single line': 'singleLine', Caption: 'caption', Overline: 'overline' }),
     label: figma.string('Label#2569:1'),
     caption: figma.string('Caption#2569:5'),
     overline: figma.string('Overline#2569:9'),

@@ -15,7 +15,20 @@ figma.connect(
   {
     props: {
     rtl: figma.enum('RTL', { Off: false }),
-    arrowPosition: figma.enum('Arrow position', { ↙ Bottom left: '↙Bottomleft', ↓ Bottom: '↓Bottom', ↘ Bottom right: '↘Bottomright', ↖ Top left: '↖Topleft', ↑ Top: '↑Top', ↗ Top right: '↗Topright', ↗ Right top: '↗Righttop', → Right: '→Right', ↘ Right bottom: '↘Rightbottom', ↖ Left top: '↖Lefttop', ← Left: '←Left', ↙ Left bottom: '↙Leftbottom' }),
+    arrowPosition: figma.enum('Arrow position', {
+      '↙ Bottom left': 'bottomLeft',
+      '↓ Bottom': 'bottom',
+      '↘ Bottom right': 'bottomRight',
+      '↖ Top left': 'topLeft',
+      '↑ Top': 'top',
+      '↗ Top right': 'topRight',
+      '↗ Right top': 'rightTop',
+      '→ Right': 'right',
+      '↘ Right bottom': 'rightBottom',
+      '↖ Left top': 'leftTop',
+      '← Left': 'left',
+      '↙ Left bottom': 'leftBottom',
+    }),
     arrow: figma.boolean('Arrow#3363:7'),
     label: figma.string('Label#3363:20'),
     },

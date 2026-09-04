@@ -41,6 +41,23 @@ components/
 | QItem | state, flip, textLayout, label, caption, overline, startSection, endSection, separatorVisible | `dropdown` (INSTANCE_SWAP) |
 | QUploader | uploaded, title, titleVisible, progressVisible, progressLabel, loadedValueLabel, loadedValueVisible | — |
 | QMenu | **nenhuma** | node sem Component Properties — `.figma.tsx` deixado vazio de propósito, veja comentário no arquivo |
+| RadioIndicator | checked, state, size, dense | — |
+| QRadio | state, flip, dense, label, description, descriptionText | `checked` NÃO é Component Property — controle via lógica de RadioGroup no código, não via prop |
+| CheckboxIndicator | checked, state, indeterminate, size, dense | — |
+| QCheckbox | state, flip, dense, label, description, descriptionText | `checked`/`indeterminate` NÃO são Component Property do wrapper — mesmo caso do QRadio |
+| TableItem | labelText, label, icon, state, type, textStyle, separator, dense, alignment | `slot` (INSTANCE_SWAP, quando Type=Swap) |
+| QDialog | footer, header, title | `slot` (INSTANCE_SWAP — conteúdo do corpo) |
+| QDate | headline, headlineYear, header, type, orientation | células internas (Month/Year/Calendar cell) não expostas como props do QDate |
+| QBanner | buttons, text, icon, rounded, dense, alignment | — |
+| QAvatar | label, size, type, rounded | — |
+| QSeparator | orientation, padding, dense | — |
+| ExpansionItem | text, opened, layout | conteúdo do QItem interno e do slot não expostos como props deste wrapper |
+| NotificationBar | badge, badgeText, avatar, notificationText, secondaryButton, primaryButton, icon, simpleText, notification, status | — |
+| BadgeIndicator | status (Red/Yellow/Green) | — |
+
+**Nota técnica (corrigida em 04/09/2026):** quando uma opção de variante do Figma tem espaço ou caractere especial no nome (ex.: `"Single line"`, `"← Left"`, `"snackbar vertical"`), a chave dentro de `figma.enum(...)` **precisa estar entre aspas** — `{ 'Single line': 'singleLine' }`, não `{ Single line: 'singleLine' }` (isso é JavaScript inválido). Essa varredura foi rodada em todos os 29 componentes deste pacote e nenhuma chave sem aspas ficou pendente.
+
+**Sobre QRadio e QCheckbox:** dentro do Figma, o node "Radio Indicator"/"Checkbox Indicator" aninhado dentro do `QRadio`/`QCheckbox` está congelado em `Checked=Off` — ou seja, o estado marcado/desmarcado não é uma variante do componente-wrapper, e sim algo que só existe no componente-filho (`RadioIndicator`/`CheckboxIndicator`), que é o node certo pra ver todos os estados de "checked". No seu código, isso normalmente vira um estado controlado (`checked`, `onChange`) do próprio `<QRadio>`/`<QCheckbox>`, então ao implementar o componente real vocês vão querer adicionar essa prop de volta — só não tem como o Code Connect mapear automaticamente porque o Figma não expõe essa variação nesse node específico.
 
 **Sobre as pendências "INSTANCE_SWAP":** são propriedades do tipo "trocar
 instância" (ex.: um ícone ou slot que pode ser substituído por outro

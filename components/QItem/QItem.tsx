@@ -15,7 +15,7 @@ import React from 'react';
 export interface QItemProps {
   state?: 'default' | 'hover' | 'disable';
   flip?: boolean;
-  textLayout?: 'singleline' | 'caption' | 'overline';
+  textLayout?: 'singleLine' | 'caption' | 'overline';
   label?: string;
   caption?: string;
   overline?: string;
@@ -24,7 +24,7 @@ export interface QItemProps {
   separatorVisible?: boolean;
 }
 
-export function QItem({ state = 'default', flip = false, textLayout = 'singleline', label = '', caption = '', overline = '', startSection = false, endSection = false, separatorVisible = false }: QItemProps) {
+export function QItem({ state = 'default', flip = false, textLayout = 'singleLine', label = '', caption = '', overline = '', startSection = false, endSection = false, separatorVisible = false }: QItemProps) {
   return (
     <div className="q-qitem">
       {/* TODO: implementar QItem */}
